@@ -3,9 +3,10 @@ import { Document, Number } from 'mongoose';
 
 export type ReviewDocument = Review & Document;
 
-interface ReviewKeywords {
-  [key: string]: string[];
-}
+type ReviewKeywordKeys = '분위기' | '음식/가격';
+type ReviewKeywords = {
+  [key in ReviewKeywordKeys]: string[];
+};
 
 @Schema({
   timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },
