@@ -3,6 +3,10 @@ import { Document, Number } from 'mongoose';
 
 export type ReviewDocument = Review & Document;
 
+interface ReviewKeywords {
+  [key: string]: string[];
+}
+
 @Schema({
   timestamps: { createdAt: 'createdAt', updatedAt: 'updatedAt' },
   versionKey: false,
@@ -14,7 +18,7 @@ export class Review {
 
   // 키워드
   @Prop()
-  keywords: object;
+  keywords: ReviewKeywords[];
 
   // 리뷰 글
   @Prop()
