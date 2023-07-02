@@ -19,7 +19,7 @@ export class Review {
 
   // 키워드
   @Prop()
-  keywords: ReviewKeywords[];
+  keywords: ReviewKeywords;
 
   // 리뷰 글
   @Prop()
@@ -34,7 +34,7 @@ export class Review {
   writer: String;
 
   // 다시 만날 의사 여부
-  @Prop()
+  @Prop({ default: false })
   isWillMeetAgain: boolean;
 }
 
