@@ -34,7 +34,7 @@ export class Review {
   writer: String;
 
   // 다시 만날 의사 여부
-  @Prop({ default: false })
+  @Prop()
   isWillMeetAgain: boolean;
 }
 
