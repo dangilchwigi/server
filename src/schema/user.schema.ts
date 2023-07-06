@@ -33,7 +33,7 @@ export class User {
   @Prop({
     type: String,
     required: true,
-    enum: ['활기차고 재미있어요', '진지한 얘기를 좋아해요'],
+    enum: ['beer', 'soju'],
   })
   alcoholMBTI: String;
 }
