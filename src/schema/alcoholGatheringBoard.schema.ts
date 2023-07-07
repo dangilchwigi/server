@@ -39,6 +39,10 @@ export class AlcoholGatheringBoard {
   // 마감 시간
   @Prop()
   deadlineTime: Date;
+
+  // 마감 여부
+  @Prop({ default: false })
+  isOpen: boolean;
 }
 
 export const AlcoholGatheringBoardSchema = SchemaFactory.createForClass(
