@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
+import { AlcoholMBTI } from 'src/types';
 
 export type UserDocument = User & Document;
 
@@ -18,24 +19,24 @@ export class User {
   profileImage: string;
 
   // 지역
-  @Prop([String])
+  @Prop({ type: [String], default: [] })
   activityArea: String[];
 
   // 주종
-  @Prop([String])
+  @Prop({ type: [String], default: [] })
   preferredAlcohol: String[];
 
   // 선호하는 안주
-  @Prop([String])
+  @Prop({ type: [String], default: [] })
   preferredFoodPairing: String[];
 
   // 주종 MBTI
   @Prop({
     type: String,
     required: true,
-    enum: ['beer', 'soju'],
+    enum: AlcoholMBTI,
   })
-  alcoholMBTI: String;
+  alcoholMBTI: AlcoholMBTI;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

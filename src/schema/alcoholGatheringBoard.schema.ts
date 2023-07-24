@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
-import { Date, Document, Number } from 'mongoose';
+import { Date, Document, Number, SchemaTypes } from 'mongoose';
 
 export type AlcoholGatheringBoardDocument = AlcoholGatheringBoard & Document;
 
@@ -11,6 +11,10 @@ export class AlcoholGatheringBoard {
   // 제목
   @Prop({ required: true })
   title: String;
+
+  // 모인 주선자
+  @Prop()
+  host: String;
 
   // 글 내용
   @Prop()
