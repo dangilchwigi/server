@@ -8,6 +8,7 @@ import { AuthModule } from './modules/auth.module';
 import { UserModule } from './modules/user.module';
 import { VerifyTokenMiddleware } from './common/middlewares/verifyToken.middleware';
 import { MapModule } from './modules/maps.module';
+import { BoardModule } from './modules/boards.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { MapModule } from './modules/maps.module';
     AuthModule,
     UserModule,
     MapModule,
+    BoardModule,
   ],
   controllers: [],
   providers: [],
