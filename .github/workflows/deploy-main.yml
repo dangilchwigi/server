@@ -41,6 +41,8 @@ jobs:
                   value: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
                 - name: AWS_REGION
                   value: ${{ secrets.AWS_REGION }}
+                -name: KAKAO_REST_API_KEY
+                  value: ${{ secrets.KAKAO_REST_API_KEY }}
               ports: "8081"
               install: npm i
               build: npm run build
