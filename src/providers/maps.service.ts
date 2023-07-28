@@ -20,6 +20,10 @@ export class MapService {
         return {
           placeName: document.place_name,
           addressName: document.address_name,
+          location: {
+            x: document.x,
+            y: document.y,
+          },
         };
       });
 
