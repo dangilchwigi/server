@@ -1,5 +1,5 @@
-import { Prop, Schema, SchemaFactory, raw } from '@nestjs/mongoose';
-import { Date, Document, Number, SchemaTypes } from 'mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Date, Document, Number } from 'mongoose';
 
 export type AlcoholGatheringBoardDocument = AlcoholGatheringBoard & Document;
 
@@ -26,7 +26,7 @@ export class AlcoholGatheringBoard {
 
   // 참여 인원 수
   @Prop()
-  maxGuests: Number;
+  maxGuests: number;
 
   // 키워드
   @Prop([String])
@@ -37,11 +37,11 @@ export class AlcoholGatheringBoard {
   guestList: String[];
 
   // 만날 시간
-  @Prop()
+  @Prop({ type: Date })
   meetingTime: Date;
 
   // 마감 시간
-  @Prop()
+  @Prop({ type: Date })
   deadlineTime: Date;
 
   // 마감 여부
