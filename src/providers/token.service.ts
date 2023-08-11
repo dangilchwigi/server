@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -21,10 +21,10 @@ export class TokenService {
 
       return { statusCode: 200, data: { accessToken } };
     } catch (error) {
-      return {
-        statusCode: 404,
-        data: { message: '가입되지 않은 회원입니다.' },
-      };
+      throw new HttpException(
+        '가입되지 않은 회원입니다.',
+        HttpStatus.NOT_FOUND
+      );
     }
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { User, UserDocument } from 'src/schema/user.schema';
@@ -55,7 +55,10 @@ export class UserService {
       return { statusCode: 201, data: { isPosted: true } };
     } catch (error) {
       console.log(error);
-      return { statusCode: 500, data: { message: '서버요청 실패' } };
+      throw new HttpException(
+        '서버요청 실패.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
     }
   }
 
@@ -66,7 +69,10 @@ export class UserService {
       return { statusCode: 200, data: { nickname: userInfo.nickname } };
     } catch (error) {
       console.log(error);
-      return { statusCode: 500, data: { message: '서버요청 실패' } };
+      throw new HttpException(
+        '서버요청 실패.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
     }
   }
 }

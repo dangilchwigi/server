@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
@@ -30,7 +30,10 @@ export class MapService {
       return { statusCode: 200, data: { placeList: result } };
     } catch (error) {
       console.log(error);
-      return { statusCode: 500, data: '서버요청 실패.' };
+      throw new HttpException(
+        '서버요청 실패.',
+        HttpStatus.INTERNAL_SERVER_ERROR
+      );
     }
   }
 }
